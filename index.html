@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortex Studio | Sistemas Digitais de Alta Performance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #0070FF;
+            --neon-glow: rgba(0, 112, 255, 0.4);
+            --dark-bg: #030303;
+            
+            /* Fibonacci Spacing */
+            --sp-xs: 0.5rem;    /* 8px */
+            --sp-s: 0.8125rem;  /* 13px */
+            --sp-m: 1.3125rem;  /* 21px */
+            --sp-l: 2.125rem;   /* 34px */
+            --sp-xl: 3.4375rem; /* 55px */
+            --sp-2xl: 5.5625rem;/* 89px */
+            --sp-3xl: 9rem;     /* 144px */
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: #F4F4F5;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.618;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Manrope', sans-serif;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #030303; }
+        ::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #333; }
+
+        .glass {
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .vortex-mesh {
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(215, 100%, 15%, 0.1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(200, 100%, 10%, 0.08) 0, transparent 50%);
+            background-color: #030303;
+        }
+
+        .noise::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+            opacity: 0.03;
+            z-index: 9999;
+        }
+
+        .golden-container {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .golden-container {
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+        }
+
+        /* Responsive Typography Clamp */
+        .text-phi-hero { font-size: clamp(2.5rem, 9vw, 6.5rem); }
+        .text-phi-h2 { font-size: clamp(2rem, 5vw, 4rem); }
+        .text-phi-body { font-size: clamp(1rem, 1.2vw, 1.25rem); }
+
+        .btn-hover-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-hover-effect::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120%;
+            height: 120%;
+            background: rgba(255,255,255,0.1);
+            transform: translate(-50%, -50%) scale(0);
+            border-radius: 50%;
+            transition: transform 0.6s ease;
+        }
+        .btn-hover-effect:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "framer-motion": "https://esm.sh/framer-motion@^11.0.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="vortex-mesh noise">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
